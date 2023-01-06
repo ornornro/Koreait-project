@@ -19,9 +19,11 @@ public class UserDto {
     private int userId;
 
     @NotBlank
-    private String userName;
+    private String username;
     @NotBlank
     private String password;
+    @NotBlank
+    private String repassword;
     @NotBlank
     private String name;
     @NotBlank
