@@ -12,15 +12,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 public class RoleDtlDto {
-
     private int roleDtlId;
 
     private int userId;
     private int roleId;
 
-    private RollMstDto rollMstDto;
+    private RoleMstDto roleMstDto;
 
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
-
 }

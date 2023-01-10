@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class UserDto {
-
     private int userId;
 
     @NotBlank
@@ -30,9 +29,8 @@ public class UserDto {
     @Email
     private String email;
 
+    private LocalDateTime createDate;
+    private LocalDateTime updateDate;
+
     private List<RoleDtlDto> roleDtlDto;
-
-    private LocalDateTime createData;
-    private LocalDateTime updateData;
-
 }

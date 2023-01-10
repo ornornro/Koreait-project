@@ -44,7 +44,7 @@ class RegisterService {
         const registerError = document.querySelectorAll(".register-error");
 
         this.#clearErrorMessage();
-        
+
         Object.keys(errors).forEach(error => {
             if(error == "username") {
                 registerError[0].textContent = errors[error];
@@ -66,7 +66,6 @@ class RegisterService {
             error.textContent = "";
         });
     }
-
 }
 
 

@@ -25,21 +25,20 @@ public class ValidationAop {
 
         BeanPropertyBindingResult bindingResult = null;
 
-        for (Object arg : args) {
+        for(Object arg : args) {
             if(arg.getClass() == BeanPropertyBindingResult.class) {
                 bindingResult = (BeanPropertyBindingResult) arg;
             }
         }
 
-        if (bindingResult.hasErrors()) {
+        if(bindingResult.hasErrors()) {
             Map<String, String> errorMap = new HashMap<>();
 
             bindingResult.getFieldErrors().forEach(error -> {
                 errorMap.put(error.getField(), error.getDefaultMessage());
             });
 
-            throw new CustomValidationException((errorMap));
-
+            throw new CustomValidationException(errorMap);
         }
 
         return proceedingJoinPoint.proceed();
