@@ -15,3 +15,6 @@ spring:
 mybatis:
   mapper-locations:
     - /mappers/*.xml
+
+file:
+  path: /Users/idongbin/db/Library-springboot-202301-dongbin/upload
