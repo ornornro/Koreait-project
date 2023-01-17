@@ -17,4 +17,4 @@ mybatis:
     - /mappers/*.xml
 
 file:
-  path: /Users/idongbin/db/Library-springboot-202301-dongbin/upload
+  path: /Users/idongbin/db/Library-springboot-202301-dongbin/upload/
