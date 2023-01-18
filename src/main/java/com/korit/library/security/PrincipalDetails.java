@@ -1,8 +1,6 @@
 package com.korit.library.security;
 
-import com.korit.library.web.dto.RoleDtlDto;
-import com.korit.library.web.dto.RoleMstDto;
-import com.korit.library.web.dto.UserDto;
+import com.korit.library.entity.UserMst;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -19,7 +16,7 @@ import java.util.Map;
 public class PrincipalDetails implements UserDetails {
 
     @Getter
-    private final UserDto user;
+    private final UserMst user;
     private Map<String,Object> response;
 
     // 권한을 리스트로 관리하는 권한
@@ -46,8 +43,8 @@ public class PrincipalDetails implements UserDetails {
 //        }
 
         // 위 주석을 줄여서 쓰면 아래에 있는 람다식으로 표현가능하다! 위에 식으로 이해하자.. 람다 존나 어려움;;
-        user.getRoleDtlDto().forEach(dtl -> {
-            authorities.add(() -> dtl.getRoleMstDto().getRoleName());
+        user.getRoleDtl().forEach(dtl -> {
+            authorities.add(() -> dtl.getRoleMst().getRoleName());
         });
 
         return authorities; // 권한들이 다 리스트 안으로 들어간다 권한들이 다 들어가는 곳!
