@@ -2,6 +2,8 @@ window.onload = () => {
     BookService.getInstance().loadBookList();
     BookService.getInstance().loadCategories();
     ComponentEvent.getInstance().addClickEventSearchButton();
+    ComponentEvent.getInstance().addClickEventDeleteButton();
+    ComponentEvent.getInstance().addClickEventDeleteCheckAll();
 }
 
 let searchObj = {
@@ -74,7 +76,6 @@ class BookSearchApi {
             async: false,
             type: "get",
             url: "http://127.0.0.1:8000/api/admin/categories",
-            data: searchObj,
             dataType: "json",
             success: response => {
                 console.log(response);
@@ -86,6 +87,29 @@ class BookSearchApi {
         });
 
         return returnData;
+    }
+
+    deleteBooks(deleteArray) {
+        let returnFlag = false;
+
+        $.ajax({
+            async: false,
+            type: "delete",
+            url: "http://127.0.0.1:8000/api/admin/books",
+            contentType: "application/json",
+            data: JSON.stringify(
+                {userIds: deleteArray}
+            ),
+            dataType: "json",
+            success: response => {
+                returnFlag = true;
+            },
+            error: error => {
+                console.log(error);
+            }
+        })
+
+        return returnFlag;
     }
 
 }
@@ -101,15 +125,16 @@ class BookService {
 
     loadBookList() {
         const responseData = BookSearchApi.getInstance().getBookList(searchObj);
-
+        const checkAll = document.querySelector(".delete-checkall");
+        checkAll.checked = false;
         const bookListBody = document.querySelector(".content-table tbody");
         bookListBody.innerHTML = "";
 
         responseData.forEach((data, index) => {
             bookListBody.innerHTML += `
                 <tr>
-                    <td><input type="checkbox"></td>
-                    <td>${data.bookId}</td>
+                    <td><input type="checkbox" class="delete-checkbox"></td>
+                    <td class="book-id">${data.bookId}</td>
                     <td>${data.bookCode}</td>
                     <td>${data.bookName}</td>
                     <td>${data.author}</td>
@@ -121,7 +146,9 @@ class BookService {
                 </tr>
             `;
         });
+
         this.loadSearchNumberList();
+        ComponentEvent.getInstance().addClickEventDeleteCheckbox();
     }
 
     loadSearchNumberList() {
@@ -129,15 +156,14 @@ class BookService {
 
         const totalCount = BookSearchApi.getInstance().getBookTotalCount(searchObj);
         const maxPageNumber = totalCount % searchObj.count == 0 
-                                ? Math.floor(totalCount / searchObj.count)
-                                : Math.floor(totalCount / searchObj.count) + 1;
+                            ? Math.floor(totalCount / searchObj.count) 
+                            : Math.floor(totalCount / searchObj.count) + 1;
 
         pageController.innerHTML = `
             <a href="javascript:void(0)" class="pre-button disabled">이전</a>
             <ul class="page-numbers">
-                
             </ul>
-            <a href="javascript:void(0)" class="next-button disabled">다음</a>        
+            <a href="javascript:void(0)" class="next-button disabled">다음</a>
         `;
 
         if(searchObj.page != 1) {
@@ -160,20 +186,21 @@ class BookService {
             }
         }
 
-        const startIndex = searchObj.page % 5 == 0
-                            ? searchObj.page - 4
-                            : searchObj.page - (searchObj.page % 5) + 1;
+        const startIndex = searchObj.page % 5 == 0 
+                        ? searchObj.page - 4 
+                        : searchObj.page - (searchObj.page % 5) + 1;
         const endIndex = startIndex + 4 <= maxPageNumber ? startIndex + 4 : maxPageNumber;
         const pageNumbers = document.querySelector(".page-numbers");
 
         for(let i = startIndex; i <= endIndex; i++) {
             pageNumbers.innerHTML += `
-                <a href="javascript:void(0)" class="page-button ${i == searchObj.page ? "disabled" : ""}"><li>${i}</li></a>
+                <a href="javascript:void(0)"class="page-button ${i == searchObj.page ? "disabled" : ""}"><li>${i}</li></a>
             `;
         }
 
-        const pageButtons = document.querySelectorAll(".page-button")
+        const pageButtons = document.querySelectorAll(".page-button");
         pageButtons.forEach(button => {
+
             const pageNumber = button.textContent;
             if(pageNumber != searchObj.page) {
                 button.onclick = () => {
@@ -182,7 +209,6 @@ class BookService {
                 }
             }
         });
-
     }
 
     loadCategories() {
@@ -198,6 +224,13 @@ class BookService {
         });
     }
 
+    removeBooks(deleteArray) {
+        let successFlag = BookSearchApi.getInstance().deleteBooks(deleteArray);
+        if(successFlag) {
+            searchObj.page = 1;
+            this.loadBookList();
+        }
+    }
 }
 
 class ComponentEvent {
@@ -228,4 +261,51 @@ class ComponentEvent {
         }
     }
 
+    addClickEventDeleteButton() {
+        const deleteButton = document.querySelector(".delete-button");
+        deleteButton.onclick = () => {
+            if(confirm("정말로 삭제하시겠습니까?")) {
+                const deleteArray = new Array();
+    
+                const deleteCheckboxs = document.querySelectorAll(".delete-checkbox");
+                deleteCheckboxs.forEach((deleteCheckbox, index) => {
+                    if(deleteCheckbox.checked) {
+                        const bookIds = document.querySelectorAll(".book-id");
+                        deleteArray.push(bookIds[index].textContent);
+                    }
+                });
+    
+                BookService.getInstance().removeBooks(deleteArray);
+            }
+        }
+    }
+
+    addClickEventDeleteCheckAll() {
+        const checkAll = document.querySelector(".delete-checkall");
+        checkAll.onclick = () => {
+            const deleteCheckboxs = document.querySelectorAll(".delete-checkbox");
+            deleteCheckboxs.forEach(deleteCheckbox => {
+                deleteCheckbox.checked = checkAll.checked;
+            });
+        }
+    }
+
+    addClickEventDeleteCheckbox() {
+        const deleteCheckboxs = document.querySelectorAll(".delete-checkbox");
+        
+        const checkAll = document.querySelector(".delete-checkall");
+
+        deleteCheckboxs.forEach(deleteCheckbox => {
+            deleteCheckbox.onclick = () => {
+                const deleteCheckedCheckboxs = document.querySelectorAll(".delete-checkbox:checked");
+                console.log("선택: " + deleteCheckedCheckboxs.length);
+                console.log("전체: " + deleteCheckboxs.length);
+                if(deleteCheckedCheckboxs.length == deleteCheckboxs.length) {
+                    checkAll.checked = true;
+                } else {
+                    checkAll.checked = false;
+                }
+            }
+        });
+    }
 }
