@@ -52,3 +52,9 @@
     height: 100%;
     border-left: 2px solid white;
 }
+
+.util {background-color: #3b3e49; padding: 15px 0;}
+.util .util-wrap {width: 1260px; margin: 0 auto;}
+.util-ul {display: flex; justify-content: space-between; align-items: center;}
+.util-ul li:first-child ul {display: flex; justify-content: space-between; align-items: center;}
+.util-ul li:last-child ul {display: flex; justify-content: space-between; align-items: center;}
