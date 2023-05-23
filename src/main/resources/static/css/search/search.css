@@ -1,10 +1,12 @@
-.main-container {display: flex; flex-direction: column; align-items: center; height: 100%; width: 100%; margin: auto; padding-top: 50px;}
+.main-container {display: flex; flex-direction: column; align-items: center; height: 100%; width: 1260px; margin: auto; padding-top: 50px;}
 
-.main-title {font-size: 30px; letter-spacing: 5px; margin-bottom: 20px; text-shadow: 1px 1px 1px #202020;}
+.main-title {font-size: 30px; letter-spacing: 5px; margin-bottom: 25px;}
 
-.option-container {display: flex; align-items: flex-end; justify-content: space-between; width: 100%; height: 100%; background-color: #fff; border-radius: 10px; margin-bottom: 10px; padding: 30px;}
+.option-container {display: flex; align-items: flex-end; justify-content: space-between; width: 100%; height: 100%; background-color: #fff; border-radius: 10px; margin-bottom: 25px;}
 
 .category-group {width: 60%;}
+
+.category-group .category-title {font-size: 18px; margin-bottom: 15px;}
 
 .category-list {display: flex; flex-wrap: wrap;}
 
@@ -18,9 +20,9 @@
 
 .search-button {width: 10%; height: 40px;}
 
-.content-container {display: flex; flex-direction: column; width: 100%; height: 100%; border-radius: 10px; background-color: #fff; min-height: 830px; padding: 30px;}
+.content-container {display: flex; flex-direction: column; width: 100%; height: 100%; border-radius: 10px; background-color: #fff; min-height: 830px;}
 
-.content-title {font-size: 25px; margin-bottom: 30px;}
+.content-title {font-size: 18px; margin-bottom: 25px;}
 
 .content-flex {display: flex; flex-wrap: wrap; justify-content: space-between;}
 
@@ -28,7 +30,7 @@
 
 .book-desc {display: flex; flex-direction: column; align-items: center;}
 
-.img-container {width: 200px; height: 250px; display: flex; justify-content: center; align-items: center; overflow: hidden; margin-bottom: 10px;}
+.img-container {width: 200px; height: 250px; display: flex; justify-content: center; align-items: center; overflow: hidden; margin-bottom: 10px; border: 1px solid #dbdbdb; border-radius: 10px;}
 
 .book-img {height: 100%;}
 
@@ -42,7 +44,7 @@
 
 .book-code {padding: 5px 3px; background-color: #555; color: #fff; font-weight: 600; display: flex; justify-content: center; align-items: center; border-radius: 4px; width: 70px;}
 
-.book-name {font-size: 25px; margin-top: 20px; margin-bottom: 40px;}
+.book-name {font-size: 25px; margin-top: 20px; margin-bottom: 20px;}
 
 .info-text {font-size: 16px; margin: 5px 0;}
 
@@ -54,8 +56,30 @@
 
 .rental-button {background-color: #555;}
 
-.like-button {background-color: #10005e;}
+.like-button {background-color: #03539e;}
 
 .return-button {background-color: #0a7cff;}
 
 .dislike-button {background-color: #820027;}
+
+.sub-banner {background: url('/static/images/subBg.jpg') no-repeat center center; background-size: cover; color: #fff; height: 185px;}
+
+.sub-banner-bar {width: 1260px; margin: auto; display: flex; align-items: flex-end; height: 100%;}
+
+.sub-banner-bar .sub-banner-leftbox {background: #124ea2 url('/static/images/lnb_bg.png') no-repeat center center; background-size: cover; display: block; width: 240px;}
+
+.sub-banner-bar .sub-banner-leftbox h3 {font-size: 30px; padding: 60px 0; text-align: center;}
+
+.sub-banner-bar .sub-banner-rightbox {width: 100%; height: 50px; background: rgba(0, 0, 0, 0.3); border-top-right-radius: 20px;}
+
+.sub-banner-bar .sub-banner-rightbox ul {height: 100%; display: flex; align-items: center; padding-left: 30px;}
+
+.sub-banner-bar .sub-banner-rightbox ul li {position: relative;}
+
+.sub-banner-bar .sub-banner-rightbox ul li::after {content: ">"; position: relative; top: 50%; right: -20px; transform: translateY(-50%); margin-right: 20px; padding-right: 20px; font-size: 14px;}
+
+.sub-banner-bar .sub-banner-rightbox ul li:last-child::after {content: none;}
+
+button.search-button {background-color: #03539e; color: #fff;}
+
+button.search-button:hover {background-color: #fff; color: #03539e; transition: all 0.3s;}

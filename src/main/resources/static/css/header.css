@@ -1,18 +1,20 @@
+.header {height: 85px; background: #fff url(/static/images/menu-gradient-bg.png) repeat-x center bottom; display: flex; align-items: center;}
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 40px 20px;
-
-    width: 100%;
-    height: 50px;
+    width: 1260px;
+    height: 85px;
+    margin: auto;
 }
 
 .brand-logo a {
-    font-size: 30px;
-    font-weight: 600;
-    color: white;
+    background-image: url(/static/images/portal_logo.png);
+    display: block;
+    width: 197px;
+    height: 47px;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .menu-container {
@@ -26,12 +28,12 @@
 
 .menu-container li a {
     font-size: 20px;
-    font-weight: 600;
-    color: white;
+    font-weight: bold;
+    color: #141414;
 }
 
 .menu-container li a:hover {
-    text-shadow: 0px 0px 15px #141414;
+    color: #03539e;
 }
 
 .account-container {
@@ -53,8 +55,16 @@
     border-left: 2px solid white;
 }
 
-.util {background-color: #3b3e49; padding: 15px 0;}
+.util {background-color: #3b3e49;}
 .util .util-wrap {width: 1260px; margin: 0 auto;}
 .util-ul {display: flex; justify-content: space-between; align-items: center;}
 .util-ul li:first-child ul {display: flex; justify-content: space-between; align-items: center;}
+.util-ul li:first-child ul li {padding: 15px 50px; font-size: 14px; color: #fff;}
+.util-ul li:first-child ul li:nth-child(1) {background-color: #363b9e;}
+.util-ul li:first-child ul li:nth-child(2) {background-color: #840093;}
+.util-ul li:first-child ul li:nth-child(3) {background-color: #00a4ae;}
 .util-ul li:last-child ul {display: flex; justify-content: space-between; align-items: center;}
+.util-ul li:last-child ul a {font-size: 14px; color: #fff;}
+.util-ul li:last-child ul a li {position: relative; margin-left: 10px; padding-left: 10px;}
+.util-ul li:last-child ul a li::after {content:''; width: 1px; height: 15px; position: absolute; top: 50%; right: -10px; transform: translateY(-50%); background-color: #fff;}
+.util-ul li:last-child ul a:last-child li::after {content: none;}

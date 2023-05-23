@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>시립도서관</title>
+    <title>부산광역시 도서관포털</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/static/css/reset.css">
@@ -15,44 +15,190 @@
 <body>
     <div id="container">
         <div class="util">
-            <div class="util-wrap">
-                <ul class="util-ul">
-                    <li>
-                        <ul>
-                            <li>부산도서관</li>
-                            <li>전자도서관</li>
-                            <li>부산학아카이브</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul>
-                            <a href="#"><li>홈으로</li></a>
-                            <a href="#"><li>로그인</li></a>
-                            <a href="#"><li>회원가입</li></a>
-                            <a href="#"><li>통합회원인증</li></a>
-                            <a href="#"><li>내서재</li></a>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <header class="header-container">
             
-        </header>
-        
+        </div>
+        <div class="header">
+            <header class="header-container">
+                
+            </header>
+        </div>
+
         <main class="main-container">
-            <div class="main-title-container">
-                <span>책과 함께하는 즐거움</span>
-                <h1>청주시 시립도서관</h1>
-            </div>
-            <div class="main-search-container">
-                <div class="main-search-border">
-                    <span class="search-type-text">자료검색</span>
-                    <input type="text" class="search-input">
-                    <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div class="main-container-wrap">
+                <div class="main-search-container">
+                    <div class="main-search-border">
+                        <span class="search-type-text">통합자료검색</span>
+                        <input type="text" class="search-input" placeholder="부산시 공공도서관 소장도서 및 전자자료를 검색할 수 있습니다.">
+                        <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="word-box">
+						<div class="word-in-box">
+							<h3>인기검색어</h3>
+							<p id="hottrend">
+	                            <a href="#">
+                                    흔한남매
+		                        </a>
+                                &nbsp;&nbsp;&nbsp;
+	                            <a href="#">
+		                            스즈메의 문단속
+	                            </a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="#">
+                                    아버지의 해방일지
+                                </a>
+                            </p>
+						</div>
+					</div>
+                </div>          
+            </div>  
+        </main>     
+        <div class="main-container-wrap2">
+            <div class="main-board-container">
+                <div class="notice">
+                    <div class="notice-title">
+                        <ul>
+                            <li><h3>공지사항</h3></li>
+                            <li></li>
+                            <li><a href="#"><img src="/static/images/notice-more-btn.png"></a></li>
+                        </ul>
+                    </div>
+                    <div class="notice-recent">
+                        <ul>
+                            <li><img src="/static/images/main_notice_img.png"></li>
+                            <li>
+                                <h4><구독형 전자책-알라딘> 다독익선 이벤트 안내</h4>
+                                <p>이벤트명 : 다독익선(한달 동안 독서 습관 들이기) 참여기간 : <br />4.20.(월) ~ 5...</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="notice-recent2">
+                        <ul>
+                            <li>
+                                <ul>
+                                    <li><img src="/static/images/arr-news.gif"></li>
+                                    <li>추천도서 요약본 알림서비스 '주간책록' 신청자 모집</li>
+                                    <li>2023.04.19</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li><img src="/static/images/arr-news.gif"></li>
+                                    <li>추천도서 요약본 알림서비스 '주간책록' 신청자 모집</li>
+                                    <li>2023.04.19</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li><img src="/static/images/arr-news.gif"></li>
+                                    <li>추천도서 요약본 알림서비스 '주간책록' 신청자 모집</li>
+                                    <li>2023.04.19</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li><img src="/static/images/arr-news.gif"></li>
+                                    <li>추천도서 요약본 알림서비스 '주간책록' 신청자 모집</li>
+                                    <li>2023.04.19</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li><img src="/static/images/arr-news.gif"></li>
+                                    <li>추천도서 요약본 알림서비스 '주간책록' 신청자 모집</li>
+                                    <li>2023.04.19</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news">
+                    <div class="notice-title">
+                        <ul>
+                            <li><h3>공지사항</h3></li>
+                            <li><img src="/static/images/notice-title-line.png"></li>
+                            <li><a href="#"><img src="/static/images/notice-more-btn.png"></a></li>
+                        </ul>
+                    </div>
+                    <div class="library-recent">
+                        <ul>
+                            <li><h4>구포</h4></li>
+                            <li><p>교육공무직원 노동조합의 교섭...</p></li>
+                            <li>2023.05.15</li>
+                        </ul>
+                        <ul>
+                            <li><h4>서면</h4></li>
+                            <li><p>스마트도서관 신간도서 탑재 안내...</p></li>
+                            <li>2023.05.15</li>
+                        </ul>
+                        <ul>
+                            <li><h4>사하</h4></li>
+                            <li><p>2023년 책 읽는 가족 모집</p></li>
+                            <li>2023.05.15</li>
+                        </ul>
+                        <ul>
+                            <li><h4>강서</h4></li>
+                            <li><p>강서 기적의 도서관 재개관 안내</p></li>
+                            <li>2023.05.15</li>
+                        </ul>
+                        <ul>
+                            <li><h4>정관</h4></li>
+                            <li><p>무선 네트워크 AP(Aooess Point...</p></li>
+                            <li>2023.05.15</li>
+                        </ul>
+                        <ul>
+                            <li><h4>명장</h4></li>
+                            <li><p>2023년 3차 신간 도서 목록 안내</p></li>
+                            <li>2023.05.15</li>
+                        </ul>
+                        <ul>
+                            <li><h4>동구</h4></li>
+                            <li><p>동구어린이 영어도서관 단시간 근...</p></li>
+                            <li>2023.05.14</li>
+                        </ul>
+                        <ul>
+                            <li><h4>사하</h4></li>
+                            <li><p>교육공무직원 노동조합의 교섭요...</p></li>
+                            <li>2023.05.14</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="newbook">
+                    <div class="newbook-title">
+                        <ul>
+                            <li><h3>신작도서</h3></li>
+                            <li><img src="/static/images/newbook-title-line.png"></li>
+                            <li><img src="/static/images/newbook-more-btn.png"></li>
+                        </ul>
+                    </div>
+                    <div class="newbook-content">
+                        <ul>
+                            <li><h4>1</h4></li>
+                            <li>[원북원 2023-42] 단어의 집 : 불을 켜...</li>
+                        </ul>
+                        <ul>
+                            <li><h4>2</h4></li>
+                            <li>[원북원 2023-42] 단어의 집 : 불을 켜...</li>
+                        </ul>
+                        <ul>
+                            <li><h4>3</h4></li>
+                            <li>[원북원 2023-42] 단어의 집 : 불을 켜...</li>
+                        </ul>
+                        <ul>
+                            <li><h4>4</h4></li>
+                            <li>그리스 로마 신화 : 만화로 읽는 초등...</li>
+                        </ul>
+                        <ul>
+                            <li><h4>5</h4></li>
+                            <li>당연하게도 나는 너를 : 이꽃님 장편소설</li>
+                        </ul>
+                        <ul>
+                            <li><h4>6</h4></li>
+                            <li>104층 나무 집</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </main>
+        </div>       
     </div>
     <script src="/static/js/account/principal.js"></script>
     <script src="/static/js/component/header.js"></script>

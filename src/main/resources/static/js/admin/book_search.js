@@ -142,7 +142,7 @@ class BookService {
                     <td>${data.publicationDate}</td>
                     <td>${data.category}</td>
                     <td>${data.rentalStatus == "Y" ? "대여중" : "대여가능"}</td>
-                    <td><a href="/templates/admin/book_modification.html?bookCode=${data.bookCode}"><i class="fa-solid fa-square-pen"></i></a></td>
+                    <td><a href="/admin/modification?bookCode=${data.bookCode}"><i class="fa-solid fa-square-pen"></i></a></td>
                 </tr>
             `;
         });
